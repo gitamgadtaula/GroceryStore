@@ -1,25 +1,41 @@
 <template>
-  <div id="app">
+  <div class="app">
     <div class="header">
-      <router-link to="/">
-        <img src="./assets/logo.png" class="logo"
-      /></router-link>
-    </div>
-    <div class="navigation">
-      <div class="link">
-        <router-link to="/browse">
-          <i class="fas fa-globe" style="font-size: 48px"></i>
-          <p>Browse</p></router-link
-        >
+      <a-row type="flex" justify="center" :gutter="[24, 12]">
+        <a-col>
+          <div class="header">
+            <router-link to="/">
+              <img src="./assets/logo.png" class="logo"
+            /></router-link>
+          </div>
+        </a-col>
+      </a-row>
+      <div class="navigation">
+        <a-row type="flex" justify="end" :gutter="[24, 12]">
+          <a-col>
+            <div class="link">
+              <router-link to="/browse" class="link">
+                <a-icon type="global" style="font-size: 48px" />
+                <p>Browse</p></router-link
+              >
+            </div>
+          </a-col>
+          <a-col>
+            <div class="link">
+              <router-link to="cart" class="link">
+                <a-badge :count="totalItems" showZero>
+                  <a-icon type="shopping-cart" style="font-size: 48px" />
+                </a-badge>
+                <p>My Cart</p></router-link
+              >
+            </div>
+          </a-col>
+        </a-row>
       </div>
-      <div class="link">
-        <router-link to="cart"
-          ><i class="fas fa-cart-plus" style="font-size: 48px"></i>
-          <p>0 items</p></router-link
-        >
-      </div>
     </div>
+
     <router-view />
+    <div class="footer"><p>All rights reserved</p></div>
   </div>
 </template>
 
@@ -27,20 +43,42 @@
 export default {
   name: "App",
   components: {},
+  computed: {
+    totalItems() {
+      return this.$store.getters.totalItems;
+    },
+  },
 };
 </script>
 
-<style scope>
+<style>
+.app {
+  margin: 40px;
+}
 .header {
-  display: flex;
-  justify-content: center;
+  position: relative;
 }
 .navigation {
-  display: flex;
-  justify-content: flex-end;
-  /* align-self: flex-end; */
+  position: absolute;
+  top: 20px;
+  right: 0px;
 }
+.link {
+  color: rgb(48, 47, 47);
+}
+
 .logo {
   width: 200px;
+}
+.footer {
+  /* margin: auto; */
+  margin: 20px 0px 0px 0px;
+  padding: 20px 10px;
+  box-shadow: 0 0 1px;
+  /* position: sticky; */
+  display: flex;
+  justify-content: flex-start;
+  bottom: 0;
+  background-color: #f2921d;
 }
 </style>

@@ -7,7 +7,6 @@ import { store } from "./store/index";
 import "ant-design-vue/dist/antd.css";
 
 Vue.use(Antd);
-
 Vue.use(VueRouter);
 Vue.config.productionTip = false;
 const router = new VueRouter({

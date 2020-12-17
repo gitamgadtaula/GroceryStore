@@ -20,8 +20,8 @@
               </a-col>
               <a-col class="action" @click="addToCart(item.id)">
                 <a-row type="flex" justify="end">
-                  <i class="fas fa-cart-plus cart-icon"></i
-                ></a-row>
+                  <a-icon type="shopping-cart" class="cart-icon" />
+                </a-row>
                 <p class="add">Add to Cart</p>
               </a-col>
             </a-row>
@@ -58,11 +58,15 @@ export default {
   border: 1px solid #000;
 }
 .info {
+  max-width: 200px;
   background-color: #f2921d;
   padding: 10px;
 }
 .info-heading {
   font-size: 18px;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
 }
 .info-subtitle {
   font-size: 12px;
@@ -76,7 +80,17 @@ export default {
 }
 .action {
   background-color: #000;
-  padding: 0px 18px;
+  padding: 0px 6px 0px 18px;
+  cursor: pointer;
+}
+.action:hover {
+  box-shadow: 2px 2px #666;
+}
+.action:active {
+  background-color: #efefef;
+  box-shadow: 1px 1px 3px #666;
+
+  transform: translateY(4px);
 }
 .add {
   color: white;

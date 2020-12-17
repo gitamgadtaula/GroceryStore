@@ -222,7 +222,7 @@ let mock = [{
   {
     id: 32,
     name: "Lemon",
-    price: "$2.8Lemon5",
+    price: "$2.8",
     country: "United States",
     image: "lemon.jpg"
   },
